@@ -45,6 +45,14 @@ class TrafficSignNet:
         inputShape = (height, width, channel)
         chanDim = -1
         
+        
+        # if we are using "channels first", update the input shape and channels dimension
+        if backend.image_data_format()== "channels_first":
+            inputShape =(channel , height, width)
+            chanDim = 1
+            print("got: rev onn backend")
+            
+            
         # CONV => RELU => BN => POOL
         
         model.add(Conv2D(8, (5, 5), padding="same", input_shape= inputShape))       
@@ -77,14 +85,14 @@ class TrafficSignNet:
         model.add(Flatten())
         model.add(Dense(128))
         model.add(Activation("relu"))
-        model.add(BatchNormalization())
+        model.add(BatchNormalization(axis= chanDIm))
         model.add(Dropout(0.5))
         
         # second set of FC => RELU layers
         model.add(Flatten())
         model.add(Dense(128))
         model.add(Activation("relu"))
-        model.add(BatchNormalization())
+        model.add(BatchNormalization(axis= chanDIm))
         model.add(Dropout(0.5))
                   
         # softmax classifier

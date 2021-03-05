@@ -39,3 +39,21 @@ Dropout : n% of the node connections are randomly disconnected (dropped out) bet
 
 
 A big thanks to Thomas Tracey who proposed using CLAHE to improve traffic sign recognition [in his 2017 article](https://medium.com/@thomastracey/recognizing-traffic-signs-with-cnns-23a4ac66f7a7).
+
+///problem 
+having trouble with class weigth 
+lets https://datascience.stackexchange.com/questions/13490/how-to-set-class-weights-for-imbalanced-classes-in-keras
+
+Let's import the module first
+
+from sklearn.utils import class_weight
+
+In order to calculate the class weight do the following
+
+class_weights = class_weight.compute_class_weight('balanced',
+                                                 np.unique(y_train),
+                                                 y_train)
+Thirdly and lastly add it to the model fitting
+
+model.fit(X_train, y_train, class_weight=class_weights)
+
