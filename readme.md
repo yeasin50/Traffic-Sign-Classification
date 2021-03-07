@@ -57,3 +57,10 @@ Thirdly and lastly add it to the model fitting
 
 model.fit(X_train, y_train, class_weight=class_weights)
 
+## For Automatic License/Number Plate Recognition
+“traditional” image processing techniques
+```
+$ pip install opencv-contrib-python
+$ pip install imutils
+$ pip install scikit-image
+```
