@@ -2,7 +2,7 @@ archive.zip
 dataset/*
 examples/*
 testImages/
-
+TrafficSignDataSet.zip
 
 # Created by https://www.toptal.com/developers/gitignore/api/vscode,jupyternotebooks,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=vscode,jupyternotebooks,python
